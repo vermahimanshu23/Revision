@@ -1,43 +1,44 @@
-import java.util.*;
 import java.util.Scanner;
+
 public class arrr {
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
-        int arr[]=new int[5];
+        int arr[] = new int[5];
 
-        for(int i=0;i<arr.length;i++)
+        for(int i = 0; i < arr.length; i++)
         {
             System.out.print("enter the number ");
-            arr[i]=sc.nextInt();
+            arr[i] = sc.nextInt();
         }
-        for(int i=0;i<arr.length;i++)
+
+        for(int i = 0; i < arr.length; i++)
         {
             System.out.print(arr[i] + " ");
         }
 
-        int max=arr[0];
-        for(int i=1;i<arr.length;i++)
+        // MAX
+        int max = arr[0];
+        for(int i = 1; i < arr.length; i++)
         {
-           if(arr[i]>max){
-           max=arr[i+1];
-           }
+            if(arr[i] > max){
+                max = arr[i];
+            }
         }
 
-           System.out.println("greater number is " +    max);
+        System.out.println("\ngreater number is " + max);
 
+        // MIN
+        int min = arr[0];
+        for(int i = 1; i < arr.length; i++)
+        {
+            if(arr[i] < min)
+            {
+                min = arr[i];
+            }
+        }
 
-           int min=arr[0];
-           for(int i=1;i<arr.length;i++)
-           {
-               if(arr[i]<min)
-               {
-                   min=arr[i];
-               }
-           }
-
-           System.out.println("smaller number is " +    min);
+        System.out.println("smaller number is " + min);
+        sc.close();
     }
 }
-
-   

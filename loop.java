@@ -34,6 +34,7 @@ public static void main(String [] args){
 
             // printing new line for each row
             System.out.println();
+            scanner.close();
         }
     }
 }

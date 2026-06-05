@@ -38,8 +38,10 @@ public class switchs {
             default:
                 System.out.println("Invalid option selected. Please choose 1, 2, 3, or 4.");
                 break;
+                
 
         }
+        scanner.close();
     }
 
 }
