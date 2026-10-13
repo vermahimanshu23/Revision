@@ -23,7 +23,7 @@ public class switchs {
                 int difference = num1 - num2;
                 System.out.println("The difference is: " + difference);
                 break;
-                case 3:
+            case 3:
                 int product = num1 * num2;      
                 System.out.println("The product is: " + product);
                 break;

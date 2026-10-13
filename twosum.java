@@ -45,26 +45,54 @@ public class twosum {
 
 
 
-  String s = "foLLowthecode";
+//   String s = "foLLowthecode";
 
-        HashMap<Character, Integer> map = new HashMap<>();
+//         HashMap<Character, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < s.length(); i++) {
+//         for (int i = 0; i < s.length(); i++) {
 
-            char c = s.charAt(i);
+//             char c = s.charAt(i);
 
-            if (map.containsKey(c)) {
-                map.put(c, map.get(c) + 1);
-                if (map.get(c) == 2) {
-                    System.out.println("First repeating character: " + c);
-                    return;
-                }
+//             if (map.containsKey(c)) {
+//                 map.put(c, map.get(c) + 1);
+//                 if (map.get(c) == 2) {
+//                     System.out.println("First repeating character: " + c);               
+//                     return;
+//                 }
 
-            } else {
-                map.put(c, 1);
-            }
+//             } else {
+//                 map.put(c, 1);
+//             }
         
-    }
-    System.out.println("No repeating character found.");
+//     }
+//     System.out.println("No repeating character found.");
+int arr[]={4,5,1,2,1,2,1};
+        HashMap<Integer,Integer> map= new HashMap<>();
+        for(int num:arr){
+            map.put(num,map.getOrDefault(num,0)+1);
+        }
+        int max=0;
+        int number=0;
+        int secondmax=0;
+        for(int key:map.keySet()){
+            if(map.get(key)>max){
+                secondmax=max;
+                max=map.get(key);
+                number=key;
+            }
+            else if(map.get(key)>secondmax && map.get(key)!=max){
+                secondmax=map.get(key);
+            }
+        }
+        
+        System.out.println("Maximum frequency is: "+max+" for number: " + number);
+        System.out.println("Second maximum frequency is: "+secondmax+" for number: " + number);
+         
+        for(int num:arr){
+            if(map.get(num)==1){
+                System.out.println("First non-repeating number is: "+num);
+                break;
+            }
+        }
 }
 }

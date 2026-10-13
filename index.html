@@ -1,0 +1,174 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>My First Page</title>
+    <style>
+        h1 {
+            color: blue;
+            font-size: 40px;
+        }
+
+        p {
+            color: gray;
+            font-family: Arial;
+        }
+
+        .skills-box {
+            background-color: lightyellow;
+            border: 2px solid orange;
+            padding: 20px;
+            margin: 30px;
+            width: 300px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Hello, I am Himanshu</h1>
+    <p>This is my first webpage.</p>
+    <ul id="taskList"></ul>
+
+    <a href="https://www.linkedin.com/in/himanshu-verma-a88068283">Visit my LinkedIn</a>
+    <br><br>
+    <img src="https://via.placeholder.com/150" alt="placeholder image">
+
+    <ul>
+        <li>Learn HTML</li>
+        <li>Learn CSS</li>
+        <li>Learn JavaScript</li>
+    </ul>
+
+    <div class="container">
+        <div class="skills-box">
+            <h2>My Skills</h2>
+            <p>Java, Python, SQL</p>
+        </div>
+
+        <div class="skills-box">
+            <h2>My Projects</h2>
+            <p>ERP System, Banking App</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <button onclick="sayHello()">Click Me</button>
+
+    <p id="message">Nothing clicked yet.</p>
+    <button onclick="changeText()">Update Message</button>
+
+    <br><br>
+
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="greetUser()">Greet Me</button>
+    <p id="greeting"></p>
+
+    <script>
+        console.log("Hello from JavaScript!");
+
+        function sayHello() {
+            alert("Hello, Himanshu!");
+        }
+
+        function changeText() {
+            document.getElementById("message").innerText = "You clicked the button!";
+        }
+
+        function greetUser() {
+            const name = document.getElementById("nameInput").value;
+            document.getElementById("greeting").innerText = "Hello, " + name + "!";
+        }
+        // const tasks = ["Fix login bug", "Write tests", "Deploy app"];
+        // console.log(tasks[1]);
+
+        // const task = { title: "Fix login bug", status: "OPEN", priority: "High" };
+        // console.log(task.title, task.status);
+
+        const tasks = [
+            { title: "Fix login bug", status: "OPEN" },
+            { title: "Write unit tests", status: "IN PROGRESS" },
+            { title: "Deploy to staging", status: "DONE" }
+        ];
+
+        const html = tasks
+            .map((task) => `<li>${task.title} — ${task.status}</li>`)
+            .join("");
+
+        document.getElementById("taskList").innerHTML = html;
+        const double = (num) => num * 2;
+        console.log(double(5)); // 10
+
+        const isAdult = (age) => age >= 18;
+        console.log(isAdult(24)); // true
+    </script>
+
+</body>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Test</title>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        function TaskList() {
+            const [tasks, setTasks] = React.useState([
+                { id: 1, title: "Fix login bug", status: "OPEN" },
+                { id: 2, title: "Write unit tests", status: "IN PROGRESS" }
+            ]);
+
+            function addTask() {
+                const newTask = { id: tasks.length + 1, title: "New Task", status: "OPEN" };
+                setTasks([...tasks, newTask]);
+            }
+
+            function removeTask(id) {
+                setTasks(tasks.filter((task) => task.id !== id));
+            }
+
+            return (
+                <div>
+                    <button onClick={addTask}>Add Task</button>
+                    <ul>
+                        {tasks.map((task) => (
+                            <li key={task.id}>
+                                {task.title} — {task.status}
+                                <button onClick={() => removeTask(task.id)}>Remove</button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<TaskList />);
+
+    </script>
+
+</body>
+
+</html>
